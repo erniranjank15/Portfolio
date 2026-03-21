@@ -36,14 +36,16 @@ body{
     padding: 40px;
     position: sticky;
     top: 40px;
-
+    
 }
 
 
 .main-content{
+    height: auto;
     background-color: #2a2a2a;
     border-radius: 16px;
-    padding: 40px;
+    padding: 20px;
+    margin: 5px;
 }
 
 
@@ -155,23 +157,26 @@ a{
 
 nav{
     display: flex;
-    justify-content:end;
+    justify-content: end;
     gap: 20px;
+
    
 }
 
 
 
-nav a{
-    text-decoration: none;
-    color: #a0a0a0;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
 
 nav a:first-child, nav a:hover{
     color: #FFBF00;
+}
+
+
+
+nav  a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
 
@@ -372,6 +377,9 @@ nav a:first-child, nav a:hover{
 }
 
 
+
+
+
 footer{
     text-align: center;
     padding: 20px;
@@ -409,15 +417,21 @@ footer{
         grid-template-columns: 1fr;
     }
 
-    #navigation nav {
-        /* Adjust nav for smaller screens */
+
+    nav{
+        gap:12px;
         justify-content: center;
         flex-wrap: wrap;
+        
     }
-
+ 
     .sidebar{
         display: block;
         width: 100%;
         padding: 20px 0;
     }
+
+ 
+
+  
 }
