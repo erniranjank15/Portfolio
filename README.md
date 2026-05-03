@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Niranjan Kasote — Personal Portfolio
 
 A responsive personal portfolio website built with pure HTML, CSS, and JavaScript.
