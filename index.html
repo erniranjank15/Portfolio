@@ -3,272 +3,546 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Niranjan Kasote | Full Stack Developer</title>
+    <meta name="description" content="Portfolio of Niranjan Kasote — Full Stack Developer specializing in React, FastAPI, Node.js, Python, and MongoDB.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Ambient Glow & Top Progress Bar -->
+    <div class="bg-glow"></div>
+    <div id="scroll-progress" class="scroll-progress-bar"></div>
 
     <div class="container">
 
-      <!-- Sidebar Section -->
-        <div class="sidebar">
+        <!-- Sidebar Section -->
+        <aside class="sidebar">
+            <div class="sidebar-inner">
 
-            <!-- Profile Image -->
-             <div class="profile">
-                <img src="assets\Niranjan Kasote (1).webp" alt="Profile Photo">
-                  <h2>Niranjan Kasote</h2>
-                  <p>Full Stack Developer</p>
-             </div>
-
-           
-
-            <!-- Contact -->
-             
-            <div class="contact">
-                <div class="email">
-                    <h3 class="label">Email</h3>
-                    <a href="mailto:kasoteniranjan23@gmail.com" class="value">kasoteniranjan23@gmail.com</a>
+                <!-- Profile Avatar & Status -->
+                <div class="profile">
+                    <div class="avatar-wrapper">
+                        <img src="assets/Niranjan Kasote (1).webp" alt="Niranjan Kasote" class="avatar-img">
+                        <span class="status-badge" title="Open to Opportunities"></span>
+                    </div>
+                    <h1 class="profile-name">Niranjan Kasote</h1>
+                    <div class="role-badge">
+                        <span id="typing-text">Full Stack Developer</span>
+                        <span class="cursor">|</span>
+                    </div>
                 </div>
 
-                <div class="phone">
-                    <h3 class="label">Phone</h3>
-                <a href="tel:9146842375" class="value">+919146842375</a>
+                <!-- Contact Quick Links & Copy -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div class="info-text">
+                            <span class="label">Email</span>
+                            <a href="mailto:kasoteniranjan23@gmail.com" class="value copy-link" data-copy="kasoteniranjan23@gmail.com">kasoteniranjan23@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div class="info-text">
+                            <span class="label">Phone</span>
+                            <a href="tel:9146842375" class="value copy-link" data-copy="+919146842375">+91 91468 42375</a>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div class="info-text">
+                            <span class="label">Location</span>
+                            <span class="value">Kolhapur, Maharashtra</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="location">
-                    <h3 class="label">Location</h3>
-                    <p class="value">Kolhapur, Maharashatra</p>
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="https://github.com/erniranjank15" target="_blank" rel="noopener" aria-label="GitHub">
+                        <img src="./assets/github.svg" alt="GitHub">
+                    </a>
+                    <a href="https://www.linkedin.com/in/niranjan-kasote-3913ab228/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <img src="./assets/linkedin-logo-svgrepo-com.svg" alt="LinkedIn">
+                    </a>
+                    <a href="https://linktr.ee/niranjankasote" target="_blank" rel="noopener" aria-label="Linktree">
+                        <img src="./assets/linktree.svg" alt="Linktree">
+                    </a>
                 </div>
+
+                <!-- Resume Download Button -->
+                <div class="resume-wrapper">
+                    <a href="https://github.com/erniranjank15" target="_blank" class="btn btn-outline full-width">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        View GitHub Profile
+                    </a>
+                </div>
+
             </div>
+        </aside>
 
+        <!-- Main Content Section -->
+        <main class="main-content">
 
-               <!--Social Media-->
-
-          <div class="social">
-            <a href="https://github.com/erniranjank15"><img src="./assets/github.svg" alt="github"></a>
-            <a href="https://www.linkedin.com/in/niranjan-kasote-3913ab228/"><img src="./assets/linkedin-logo-svgrepo-com.svg" alt="linkedin"></a>
-            <a href="https://linktr.ee/niranjankasote"><img src="./assets/linktree.svg" alt="linkree"></a>
-         </div>
-       
-        </div>
-
-
-
-
-           <!-- Main Content Section -->
-        <div class="main-content">
-
-          <!--Navigation-->
-
-          <div id="navigation">
-            <nav>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#education">Education</a>
-                <a href="#portfolio">Portfolio</a>
-        
-            </nav>
-          </div>
-
-
+            <!-- Sticky Glass Header Navigation -->
+            <header id="navigation" class="nav-header">
+                <div class="nav-brand">Er. Niranjan</div>
+                <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav id="nav-menu" class="nav-links">
+                    <a href="#about" class="nav-link active">About</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#education" class="nav-link">Education</a>
+                    <a href="#portfolio" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+            </header>
 
             <!-- About Section -->
-         <div id="about">
-            <h2 class="heading">About Me</h2>
-            <div class="line"></div>
-            <p class="content"> Computer Science graduate with a strong foundation in software development, problem-solving, and application design.
-Experienced in developing projects across diverse technologies and adapting quickly to new tools and frameworks. Passionate
-about building efficient, user-focused software solutions and continuously expanding technical expertise. Seeking an entry
-level Software Developer role to contribute, learn, and grow professionally.</p>
-         </div>
+            <section id="about" class="section-container">
+                <div class="section-header">
+                    <h2 class="heading">About Me</h2>
+                    <div class="heading-line"></div>
+                </div>
+                <p class="content bio-text">
+                    Computer Science graduate with a strong foundation in software development, problem-solving, and application design. Experienced in developing full-stack web applications using <strong>React.js</strong>, <strong>FastAPI</strong>, <strong>Node.js</strong>, <strong>Express.js</strong>, <strong>Spring Boot</strong>, and <strong>MongoDB</strong>. Passionate about building efficient, user-focused software solutions and continuously expanding technical expertise. Seeking an entry-level Software Developer role to contribute, learn, and grow professionally.
+                </p>
 
+                <!-- Quick Stats Counter -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">6+</div>
+                        <div class="stat-label">Full Stack & ML Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">14+</div>
+                        <div class="stat-label">Tech Stack Tools</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2025</div>
+                        <div class="stat-label">B.Tech CSE Graduate</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Professional Experience Section -->
+            <section id="experience" class="section-container">
+                <div class="section-header">
+                    <h2 class="heading">Professional Experience</h2>
+                    <div class="heading-line"></div>
+                </div>
+
+                <div class="experience-card glass-card">
+                    <div class="exp-header">
+                        <div>
+                            <h3 class="exp-role-title">Junior Software Developer Intern</h3>
+                            <div class="exp-company">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                                Aarmarks Media Pvt Ltd, Kolhapur
+                            </div>
+                        </div>
+                        <span class="exp-date">June 2026 – Present</span>
+                    </div>
+                    <ul class="exp-bullet-list">
+                        <li>Implemented <strong>lead search, filtering, bulk selection, and status management</strong>.</li>
+                        <li>Developed <strong>FastAPI REST APIs</strong> for leads, campaigns, and user/email-account data.</li>
+                        <li>Built <strong>custom reports and analytics</strong> with bar, pie, and line charts and time-based filtering.</li>
+                        <li>Implemented <strong>PDF report export</strong> using jsPDF and jspdf-autotable.</li>
+                        <li>Improved <strong>responsive UI, navigation, filtering, and data-table interactions</strong>.</li>
+                    </ul>
+                </div>
+            </section>
 
             <!-- Skills Section -->
-         <div id="skills">
-          <h2 class="heading">Skills</h2>
-          <div class="line"></div>
-          <div class="grid-container">
-            <div class="item">
-              <img src="./assets/html5.svg" alt="HTML">
-              <h3>HTML5</h3>
-            </div>
-            <div class="item">
-               <img src="./assets/css.svg" alt="Css3">
-              <h3>CSS3</h3>
-            </div>
-            <div class="item">
-               <img src="./assets/javascript.svg" alt="Js">
-              <h3>Javascript</h3>
-            </div>
-            <div class="item">
-               <img src="./assets/react.svg" alt="React">
-              <h3>React</h3>
-            </div>
-            <div class="item">
-               <img src="./assets/c.svg" alt="C">
-              <h3>C</h3>
-            </div>
-            <div class="item">
-               <img src="./assets/cplusplus.svg" alt="C++">
-              <h3>C++</h3>
-            </div>
-            <div class="item">
-               <img src="./assets/python.svg" alt="Python">
-              <h3>Python</h3>
-            </div>
-            <div class="item">
-               <img src="./assets/fastapi.svg" alt="FastAPI">
-              <h3>FastAPI</h3>
-            </div>
-            <div class="item">
-               <img src="./assets/github.svg" alt="GitHub">
-              <h3>GitHub</h3>
-            </div>
-            <div class="item">
-               <img src="./assets/mongodb-svgrepo-com.svg" alt="MongoDB">
-              <h3>MongoDB</h3>
-            </div>
-              <div class="item">
-               <img src="./assets/NodeFill.svg" alt="NodeJS">
-              <h3>Node JS</h3>
-            </div>
+            <section id="skills" class="section-container">
+                <div class="section-header">
+                    <h2 class="heading">Technical Skills</h2>
+                    <div class="heading-line"></div>
+                </div>
 
-              <div class="item">
-               <img src="./assets/Express.svg" alt="ExpressJS">
-              <h3>Express JS</h3>
-          </div>
+                <!-- Skill Filter Tabs -->
+                <div class="filter-tabs">
+                    <button class="skill-filter-btn active" data-filter="all">All</button>
+                    <button class="skill-filter-btn" data-filter="frontend">Frontend</button>
+                    <button class="skill-filter-btn" data-filter="backend">Backend</button>
+                    <button class="skill-filter-btn" data-filter="lang">Languages</button>
+                    <button class="skill-filter-btn" data-filter="tools">Database & Deployment</button>
+                </div>
 
-
-             <div class="item">
-               <img src="./assets/java-svgrepo-com.svg" alt="Java">
-              <h3>Java</h3>
-            </div>
-
-
-
-
-
-
-          </div>
-
-         
-         
-
-
+                <!-- Skills Grid -->
+                <div class="grid-container skills-grid">
+                    <div class="item skill-card" data-category="frontend lang">
+                        <img src="./assets/html5.svg" alt="HTML5">
+                        <h3>HTML5</h3>
+                        <span class="skill-tag">Structure</span>
+                    </div>
+                    <div class="item skill-card" data-category="frontend">
+                        <img src="./assets/css.svg" alt="CSS3">
+                        <h3>CSS3</h3>
+                        <span class="skill-tag">Styling</span>
+                    </div>
+                    <div class="item skill-card" data-category="frontend lang">
+                        <img src="./assets/javascript.svg" alt="JavaScript">
+                        <h3>JavaScript</h3>
+                        <span class="skill-tag">ES6+</span>
+                    </div>
+                    <div class="item skill-card" data-category="frontend">
+                        <img src="./assets/react.svg" alt="React">
+                        <h3>React.js</h3>
+                        <span class="skill-tag">Frontend UI</span>
+                    </div>
+                    <div class="item skill-card" data-category="backend">
+                        <img src="./assets/fastapi.svg" alt="FastAPI">
+                        <h3>FastAPI</h3>
+                        <span class="skill-tag">Python API</span>
+                    </div>
+                    <div class="item skill-card" data-category="backend">
+                        <img src="./assets/NodeFill.svg" alt="Node JS">
+                        <h3>Node.js</h3>
+                        <span class="skill-tag">Runtime</span>
+                    </div>
+                    <div class="item skill-card" data-category="backend">
+                        <img src="./assets/Express.svg" alt="Express JS">
+                        <h3>Express.js</h3>
+                        <span class="skill-tag">REST Framework</span>
+                    </div>
+                    <div class="item skill-card" data-category="backend">
+                        <img src="./assets/java-svgrepo-com.svg" alt="Spring Boot">
+                        <h3>Spring Boot</h3>
+                        <span class="skill-tag">Java Framework</span>
+                    </div>
+                     <div class="item skill-card" data-category="tools">
+                        <img src="./assets/mongodb-svgrepo-com.svg" alt="MongoDB">
+                        <h3>MongoDB</h3>
+                        <span class="skill-tag">NoSQL Database</span>
+                    </div>
+                    <div class="item skill-card" data-category="lang tools">
+                        <img src="./assets/sqlalchemy.svg" alt="SQL">
+                        <h3>SQL</h3>
+                        <span class="skill-tag">Database Query</span>
+                    </div>
+                        <div class="item skill-card" data-category="tools">
+                        <img src="./assets/postgresql-svgrepo-com.svg" alt="PostgreSQL">
+                        <h3>PostgreSQL</h3>
+                        <span class="skill-tag">SQL Database</span>
+                    </div>
+                    <div class="item skill-card" data-category="lang backend">
+                        <img src="./assets/python.svg" alt="Python">
+                        <h3>Python</h3>
+                        <span class="skill-tag">Backend & ML</span>
+                    </div>
+                    <div class="item skill-card" data-category="lang">
+                        <img src="./assets/java-svgrepo-com.svg" alt="Java">
+                        <h3>Java</h3>
+                        <span class="skill-tag">OOP & Logic</span>
+                    </div>
+                    <div class="item skill-card" data-category="lang">
+                        <img src="./assets/cplusplus.svg" alt="C++">
+                        <h3>C++</h3>
+                        <span class="skill-tag">Data Structures</span>
+                    </div>
+                    <div class="item skill-card" data-category="lang">
+                        <img src="./assets/c.svg" alt="C">
+                        <h3>C</h3>
+                        <span class="skill-tag">Programming</span>
+                    </div>
+                    <div class="item skill-card" data-category="tools">
+                        <img src="./assets/github.svg" alt="GitHub">
+                        <h3>Git & GitHub</h3>
+                        <span class="skill-tag">Version Control</span>
+                    </div>
+                 
+                </div>
+            </section>
 
             <!-- Education Section -->
-         <div id="education">
-           <h2 class="heading">Education</h2>
-            <div class="line"></div>
-            <div class="edtech">
-              <div class="edfirst">
-                <div class="year">2021-2025</div>
-                <h3 class="degree">Bachelor Of Technology in CSE</h3>
-                <p class="college">Ashokrao Mane Group Of Institutions Vathar Tarf Vadgaon</p>
-                <h4 class="grade">Grade: First Class</h4>
-                <div class="goal"></div>
-              </div>
+            <section id="education" class="section-container">
+                <div class="section-header">
+                    <h2 class="heading">Education</h2>
+                    <div class="heading-line"></div>
+                </div>
 
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
 
-              <div class="edsecond">
-                <div class="year">2019-2021</div>
-                <h3 class="degree">HSC</h3>
-                <p class="college">Shriram Junior College Kuditre</p>
-                <h4 class="grade">Grade: First Class</h4>
-                <div class="goal"></div>
-              </div>
+                    <!-- Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-year">2021 — 2025</span>
+                            <h3 class="degree">Bachelor of Technology in Computer Science & Engineering</h3>
+                            <p class="college">Ashokrao Mane Group Of Institutions, Vathar</p>
+                            <div class="timeline-footer">
+                                <span class="grade-badge">CGPA: 6.85</span>
+                                <span class="degree-tag">Degree</span>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-year">2019 — 2021</span>
+                            <h3 class="degree">Higher Secondary Certificate (HSC)</h3>
+                            <p class="college">Shriram Junior College, Kuditre</p>
+                            <div class="timeline-footer">
+                                <span class="grade-badge">Grade: First Class</span>
+                                <span class="degree-tag">Class 12th</span>
+                            </div>
+                        </div>
+                    </div>
 
-              <div class="edthird">
-                <div class="year">2018-2019</div>
-                <h3 class="degree">SSC</h3>
-                <p class="college">Sangrul Highschool Sangrul</p>
-                <h4 class="grade">Grade: First Class With Distinction</h4>
-                <div class="goal"></div>
-              </div>
-              <div class="liner"></div>
+                    <!-- Item 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-year">2018 — 2019</span>
+                            <h3 class="degree">Secondary School Certificate (SSC)</h3>
+                            <p class="college">Sangrul Highschool, Sangrul</p>
+                            <div class="timeline-footer">
+                                <span class="grade-badge">Grade: Distinction</span>
+                                <span class="degree-tag">Class 10th</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Portfolio Projects Section -->
+            <section id="portfolio" class="section-container">
+                <div class="section-header">
+                    <h2 class="heading">Featured Projects</h2>
+                    <div class="heading-line"></div>
+                </div>
+
+                <!-- Project Filter Tabs -->
+                <div class="filter-tabs">
+                    <button class="project-filter-btn active" data-filter="all">All Projects</button>
+                    <button class="project-filter-btn" data-filter="fullstack">Full Stack</button>
+                    <button class="project-filter-btn" data-filter="web">Web Apps</button>
+                    <button class="project-filter-btn" data-filter="ml">Machine Learning</button>
+                </div>
+
+                <div class="project-container">
+                    
+                    <!-- Project 1: Bank Management System -->
+                    <div class="project glass-card" data-id="bank-app" data-category="fullstack web">
+                        <div class="project-img-wrapper">
+                            <img src="./assets/p3.webp" alt="Bank Management System">
+                            <div class="project-overlay">
+                                <span class="overlay-btn">View Details</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Bank Management System</h3>
+                            </div>
+                            <p>Full-stack banking web app featuring secure auth, transaction history, deposits, and withdrawal management.</p>
+                            <div class="tech-tags">
+                                <span>React</span>
+                                <span>FastAPI</span>
+                                <span>MongoDB</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="https://banknk.netlify.app/" target="_blank" rel="noopener" class="btn btn-sm btn-primary">Live Demo</a>
+                                <a href="https://bank-4-yt2f.onrender.com/docs" target="_blank" rel="noopener" class="btn btn-sm btn-secondary">API Docs</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Job Portal System -->
+                    <div class="project glass-card" data-id="job-portal" data-category="fullstack web">
+                        <div class="project-img-wrapper">
+                            <img src="./assets/Job_Portal.webp" alt="Job Portal System">
+                            <div class="project-overlay">
+                                <span class="overlay-btn">View Details</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Job Portal System</h3>
+                            </div>
+                            <p>RESTful job portal platform built with React, Node.js, Express, and MongoDB for candidates and recruiters.</p>
+                            <div class="tech-tags">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>Express</span>
+                                <span>MongoDB</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="https://jobportalnk.netlify.app/" target="_blank" rel="noopener" class="btn btn-sm btn-primary">Live Demo</a>
+                                <a href="https://github.com/erniranjank15" target="_blank" rel="noopener" class="btn btn-sm btn-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Library Management System -->
+                    <div class="project glass-card" data-id="library-system" data-category="fullstack web">
+                        <div class="project-img-wrapper">
+                            <img src="./assets/goran-ivos-iOykDIkZLQw-unsplash.webp" alt="Library Management System">
+                            <div class="project-overlay">
+                                <span class="overlay-btn">View Details</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Library Management System</h3>
+                            </div>
+                            <p>Spring Boot backend application for managing books, members, borrowing records, and RESTful CRUD APIs.</p>
+                            <div class="tech-tags">
+                                <span>Spring Boot</span>
+                                <span>JDBC</span>
+                                <span>SQLite</span>
+                                <span>Maven</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="https://github.com/erniranjank15" target="_blank" rel="noopener" class="btn btn-sm btn-secondary full-width">View Repository</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Heart Disease Prediction -->
+                    <div class="project glass-card" data-id="heart-disease" data-category="ml">
+                        <div class="project-img-wrapper">
+                            <img src="./assets/p9.webp" alt="Heart Disease Prediction System">
+                            <div class="project-overlay">
+                                <span class="overlay-btn">View Details</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Heart Disease Prediction</h3>
+                            </div>
+                            <p>Machine learning application trained with Scikit-learn to predict patient heart disease risks from clinical indicators.</p>
+                            <div class="tech-tags">
+                                <span>Python</span>
+                                <span>Scikit-learn</span>
+                                <span>Streamlit</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="https://heart-disease-web-app-mckaf9ocupljknoutjprmj.streamlit.app/" target="_blank" rel="noopener" class="btn btn-sm btn-primary">Live Demo</a>
+                                <a href="https://github.com/erniranjank15/heart_app" target="_blank" rel="noopener" class="btn btn-sm btn-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    <!-- Project 5: Personal Portfolio Website -->
+                    <div class="project glass-card" data-id="portfolio" data-category="web">
+                        <div class="project-img-wrapper">
+                            <img src="./assets/p7.webp" alt="Portfolio Website">
+                            <div class="project-overlay">
+                                <span class="overlay-btn">View Details</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Portfolio Website</h3>
+                            </div>
+                            <p>Interactive modern portfolio website built with pure HTML5, CSS3 glassmorphism, and JavaScript animations.</p>
+                            <div class="tech-tags">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="https://personalportfolionk.netlify.app/" target="_blank" rel="noopener" class="btn btn-sm btn-primary">Live Demo</a>
+                                <a href="https://github.com/erniranjank15/Portfolio" target="_blank" rel="noopener" class="btn btn-sm btn-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section-container">
+                <div class="section-header">
+                    <h2 class="heading">Get In Touch</h2>
+                    <div class="heading-line"></div>
+                </div>
+
+                <div class="contact-wrapper glass-card">
+                    <div class="contact-prompt">
+                        <h3>Let's work together!</h3>
+                        <p>I'm currently seeking entry-level Software Developer / Full Stack opportunities. Feel free to send a message or reach out directly.</p>
+                    </div>
+
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="form-name">Your Name</label>
+                            <input type="text" id="form-name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-email">Your Email</label>
+                            <input type="email" id="form-email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-message">Message</label>
+                            <textarea id="form-message" rows="4" placeholder="Hi Niranjan, I'd like to discuss an opportunity..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <div class="footer-content">
+                    <p>&copy; 2025 Niranjan Kasote. Designed & Built with Precision.</p>
+                    <a href="#about" class="back-to-top" aria-label="Back to top">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                    </a>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="modal-backdrop">
+        <div class="modal-card glass-card">
+            <button id="modal-close" class="modal-close-btn" aria-label="Close modal">&times;</button>
+            <div class="modal-body">
+                <div class="modal-media">
+                    <img id="modal-img" src="" alt="Project Preview">
+                </div>
+                <div class="modal-content">
+                    <h2 id="modal-title"></h2>
+                    <h4 id="modal-subtitle" class="modal-subtitle"></h4>
+                    <p id="modal-desc" class="modal-desc"></p>
+                    <div id="modal-tech" class="tech-tags modal-tags"></div>
+                    <div id="modal-features" class="modal-features"></div>
+                    <div id="modal-links" class="modal-actions"></div>
+                </div>
             </div>
+        </div>
+    </div>
 
-         </div>
-
-
-            <!-- Portfolio Section -->
-         <div id="portfolio">
-           <h2 class="heading">Portfolio</h2>
-            <div class="line"></div>
-
-
-          <div class="project-container">
-           
-
-
-           <div class="project">
-               <img src="./assets/p3.webp" alt="Project View">
-              <div class="card">
-                <h3>Bank Management System</h3>
-                <p> Built a full-stack banking application using React and FastAPI with a MongoDB database.</p>
-                <span>React</span>
-                <span>Fastapi</span>
-                <span>MongoDB</span>
-                <a href="https://banknk.netlify.app/">Live</a>
-               </div>
-            </div>
-
-
-
-            <div class="project">
-               <img src="./assets/p7.webp" alt="Project View">
-              <div class="card">
-                <h3>Portfolio Website</h3>
-                <p>Designed and developed a fully responsive personal portfolio website using HTML and CSS.</p>
-                <span>HTML</span>
-                <span>CSS</span>
-                <a href="https://personalportfolionk.netlify.app/">Live</a>
-               </div>
-            </div>
-
-
-            <div class="project">
-               <img src="./assets/Job_Portal.webp" alt="Project View">
-              <div class="card">
-                <h3>Job Portal System</h3>
-                <p>Built a RESTful APIs for Job Portal application using Node.js & Express.js with a MongoDB database also built User Interface using React.js.</p>
-                <span>React.js</span>
-                <span>Node.js</span>
-                <span>Express.js</span>
-                <span>MongoDB</span>
-                <a href="https://jobportalnk.netlify.app/">Live</a>
-               </div>
-            </div>
-            
-
-
-
-
-              <div class="project">
-               <img src="./assets/p9.webp" alt="Project View">
-              <div class="card">
-                <h3>Heart Disease Prediction System</h3>
-                <p>Developed a machine learning model to predict heart disease based on patient data.</p>
-                <span>Python</span>
-                <span>Scikit-learn</span>
-                <a href="https://heart-disease-web-app-mckaf9ocupljknoutjprmj.streamlit.app/">Live</a>
-               </div>
-            </div>
-
-        
-         
-           
-
-
-     </div>
-  
-     <footer>
-      <p>&copy; 2025 Niranjan Kasote. All rights reserved.</p>
-     </footer>
-
-
-       
+    <script src="script.js"></script>
 </body>
 </html>
