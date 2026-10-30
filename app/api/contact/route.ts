@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
@@ -6,49 +7,42 @@ export async function POST(request: Request) {
 
     if (!name || !email || !message) {
       return NextResponse.json(
-        { detail: 'Please provide name, email, and message.' },
+        { detail: 'Please fill in all fields (name, email, message).' },
         { status: 400 }
       );
     }
 
-    const brevoApiKey = process.env.BREVO_API_KEY;
-    const senderEmail = process.env.SENDER_EMAIL || 'kasoteniranjan23@gmail.com';
-    const myNotificationEmail = process.env.RECIPIENT_EMAIL || 'kasoteniranjan23@gmail.com';
+    const emailUser = process.env.EMAIL_USER;
+    const emailPass = process.env.EMAIL_PASS;
+    const recipientEmail = process.env.RECIPIENT_EMAIL || emailUser || 'kasoteniranjan23@gmail.com';
 
-    if (!brevoApiKey || brevoApiKey.includes('your_actual_brevo_api_key_here')) {
+    if (!emailUser || !emailPass || emailPass.includes('your-app-password')) {
       return NextResponse.json(
-        { detail: 'Brevo API key is not configured on the server. Please check .env file.' },
+        {
+          detail: 'Email credentials are not configured. Please set EMAIL_USER and EMAIL_PASS in your .env file.',
+        },
         { status: 500 }
       );
     }
 
-    const brevoEndpoint = 'https://api.brevo.com/v3/smtp/email';
-    const headers = {
-      'accept': 'application/json',
-      'api-key': brevoApiKey,
-      'content-type': 'application/json',
-    };
+    // Configure Nodemailer transporter (defaulting to Gmail or custom SMTP)
+    const transporter = nodemailer.createTransport({
+      service: process.env.EMAIL_SERVICE || 'gmail',
+      auth: {
+        user: emailUser,
+        pass: emailPass,
+      },
+    });
 
     const formattedMessage = message.replace(/\n/g, '<br>');
 
-    // 1. Notification email sent TO YOU (with visitor's name as sender)
-    const adminEmailPayload = {
-      sender: {
-        name: name,
-        email: senderEmail,
-      },
-      to: [
-        {
-          email: myNotificationEmail,
-          name: 'Niranjan Kasote',
-        },
-      ],
-      replyTo: {
-        email: email,
-        name: name,
-      },
+    // 1. Notification email sent TO YOU (from the visitor)
+    const adminMailOptions = {
+      from: `"${name}" <${emailUser}>`,
+      to: recipientEmail,
+      replyTo: email,
       subject: `Inquiry from ${name}: Portfolio Contact`,
-      htmlContent: `
+      html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
           <div style="background-color: #4f46e5; color: #ffffff; padding: 20px; text-align: center;">
             <h2 style="margin: 0; font-size: 20px;">New Message from ${name}</h2>
@@ -63,30 +57,19 @@ export async function POST(request: Request) {
             </div>
           </div>
           <div style="background-color: #f3f4f6; padding: 12px; text-align: center; font-size: 12px; color: #6b7280;">
-            Clicking 'Reply' will respond directly to ${name} (${email})
+            Clicking 'Reply' in your mail client will reply directly to ${name} (${email})
           </div>
         </div>
       `,
     };
 
     // 2. Automated acknowledgment copy sent TO THE VISITOR
-    const userEmailPayload = {
-      sender: {
-        name: 'Niranjan Kasote',
-        email: senderEmail,
-      },
-      to: [
-        {
-          email: email,
-          name: name,
-        },
-      ],
-      replyTo: {
-        email: myNotificationEmail,
-        name: 'Niranjan Kasote',
-      },
+    const userMailOptions = {
+      from: `"Niranjan Kasote" <${emailUser}>`,
+      to: email,
+      replyTo: recipientEmail,
       subject: `Thanks for reaching out, ${name}!`,
-      htmlContent: `
+      html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
           <div style="background-color: #4f46e5; color: #ffffff; padding: 20px; text-align: center;">
             <h2 style="margin: 0; font-size: 20px;">Thank You for Reaching Out!</h2>
@@ -106,39 +89,23 @@ export async function POST(request: Request) {
       `,
     };
 
-    // Send notification to admin
-    const adminRes = await fetch(brevoEndpoint, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify(adminEmailPayload),
+    // Send email to you
+    await transporter.sendMail(adminMailOptions);
+
+    // Send confirmation to the visitor (asynchronously)
+    transporter.sendMail(userMailOptions).catch((err) => {
+      console.error('Error sending confirmation email to visitor:', err);
     });
 
-    // Send acknowledgment to visitor (fire in background)
-    fetch(brevoEndpoint, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify(userEmailPayload),
-    }).catch(err => console.error('Error sending auto-reply:', err));
-
-    if (adminRes.ok) {
-      return NextResponse.json({
-        status: 'success',
-        message: 'Your message has been sent successfully!',
-      });
-    } else {
-      const errData = await adminRes.json().catch(() => ({}));
-      const errorDetail = errData.message || (await adminRes.text()) || 'Failed to send via Brevo';
-      return NextResponse.json(
-        { detail: `Brevo API error: ${errorDetail}` },
-        { status: adminRes.status }
-      );
-    }
+    return NextResponse.json({
+      status: 'success',
+      message: 'Your message has been sent successfully!',
+    });
   } catch (error: any) {
-    console.error('Contact API error:', error);
+    console.error('Nodemailer Error:', error);
     return NextResponse.json(
-      { detail: `Server error: ${error.message}` },
+      { detail: `Failed to send email: ${error.message || 'Unknown error'}` },
       { status: 500 }
     );
   }
 }
-
