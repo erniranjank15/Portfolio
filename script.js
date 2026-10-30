@@ -206,8 +206,9 @@ function initContactForm() {
     const contactForm = document.getElementById('contact-form');
     if (!contactForm) return;
 
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        const submitBtn = contactForm.querySelector('.btn-submit');
         const name = document.getElementById('form-name').value.trim();
         const email = document.getElementById('form-email').value.trim();
         const message = document.getElementById('form-message').value.trim();
@@ -217,14 +218,37 @@ function initContactForm() {
             return;
         }
 
-        // Construct mailto format as fallback / instant handler
-        const mailtoUri = `mailto:kasoteniranjan23@gmail.com?subject=Portfolio%20Inquiry%20from%20${encodeURIComponent(name)}&body=${encodeURIComponent(message + "\n\nFrom: " + name + " (" + email + ")")}`;
-        
-        showToast("Opening email client to send your message...");
-        setTimeout(() => {
-            window.location.href = mailtoUri;
-            contactForm.reset();
-        }, 800);
+        const originalBtnHtml = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span>Sending...</span>`;
+
+        try {
+            // FastAPI endpoint (change to your deployed URL if hosting on cloud)
+            const API_URL = "http://127.0.0.1:8000/api/contact";
+
+            const response = await fetch(API_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ name, email, message })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                showToast("Message sent successfully! I will get back to you soon.");
+                contactForm.reset();
+            } else {
+                showToast(data.detail || "Failed to send message. Please try again.");
+            }
+        } catch (error) {
+            console.error("Contact Form Submission Error:", error);
+            showToast("Network error: Could not reach the email server. Please check your backend.");
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHtml;
+        }
     });
 }
 
