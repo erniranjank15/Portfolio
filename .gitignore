@@ -1,6 +1,13 @@
+# Next.js
+.next/
+out/
+build/
+node_modules/
+
+# Environment Variables
 .env
-__pycache__/
-*.pyc
-venv/
-.venv/
-.env.example
+.env*.local
+
+# System & Editor
+.DS_Store
+*.log
