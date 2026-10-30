@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     const emailPass = process.env.EMAIL_PASS;
     const recipientEmail = process.env.RECIPIENT_EMAIL || emailUser || 'kasoteniranjan23@gmail.com';
 
-    if (!emailUser || !emailPass || emailPass.includes('your-app-password')) {
+    if (!emailUser || !emailPass || emailPass.includes('sqmipyjdhlhftjcg')) {
       return NextResponse.json(
         {
           detail: 'Email credentials are not configured. Please set EMAIL_USER and EMAIL_PASS in your .env file.',
